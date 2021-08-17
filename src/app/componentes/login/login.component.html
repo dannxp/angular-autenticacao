@@ -1,0 +1,28 @@
+
+<div class="p-3 mb-2 bg-dark text-white container-fluid">
+    <form [formGroup]="form" class="row g-3 mt-2 needs-validation" novalidate>
+        <div class="mb-3 bg-dark">
+            <div class="col-md-6 offset-md-3">
+                <p class="h5"> Login </p>
+                <input class="form-control form-control-sm" type="text" id="email" formControlName="email"
+                    placeholder="E-mail" [ngClass]="cssValidacao('email')">
+                    <span class="invalid-feedback"
+                    *ngIf="form.controls.email.touched || form.controls.email.errors?.required">E-mail é obrigatório.</span>
+                    <br>
+                <input class="form-control form-control-sm" type="password" id="senha" formControlName="senha"
+                    placeholder="Senha" [ngClass]="cssValidacao('senha')">
+                    <span class="invalid-feedback"
+                    *ngIf="form.controls.senha.touched || form.controls.senha.errors?.required">Senha é obrigatório.</span>
+               
+            </div>
+            <br>
+            <div class="mb-3 bg-dark">
+                <div class="form-check">
+                    <div class="col-md-4 offset-md-3">
+                        <input type="button" class="btn btn-success btn-sm" value="Logar" (click)="logar()"
+                            [disabled]="form.invalid">
+                        &nbsp;
+                        <input type="button" class="btn btn-info btn-sm" value="Voltar" [routerLink]="['/']">
+                    </div>
+                </div>
+            </div>

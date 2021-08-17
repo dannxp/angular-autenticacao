@@ -1,4 +1,8 @@
 <div class="p-3 mb-2 bg-dark text-white container-fluid">
+  <p class="h6">Data e hora atual: {{dataHoraAtual}} </p>
+  <p class="h6">Data em tempo real: {{dataTempoReal}}</p>
+  <button class="btn-info" (click)="atualizarDataHora()">Atualizar data</button>
+  <br>
 <table class="table bg-dark text-white table-hover">
     <thead>
       <tr>
@@ -12,9 +16,8 @@
     <tbody>
       <tr *ngFor="let lancamento of lancamentos">
         <th scope="row" >{{lancamento.id}}</th>
-        <td>{{lancamento.data | data | date: "dd/mm/yyyy"}}</td>
+        <td>{{lancamento.data | data | date: "dd/MM/yyyy"}}</td>
         <td>{{lancamento.data | hora}}</td>
-        
         <td>{{lancamento.tipo | tipo}}</td>
         <td><a [href]="urlLocalizacao(lancamento.localizacao)" target="_blank">{{lancamento.localizacao}}</a></td>
       </tr>

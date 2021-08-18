@@ -1,8 +1,9 @@
 <div class="p-3 mb-2 bg-dark text-white container-fluid">
   <p class="h6">Data e hora atual: {{dataHoraAtual}} </p>
   <p class="h6">Data em tempo real: {{dataTempoReal}}</p>
-  <p><button class="btn-info" (click)="atualizarDataHora()">Atualizar data</button></p>
-  <p><button class="btn-success" (click)="downloadCSV()">Download CSV</button></p>
+  <p><button class="btn btn-info" (click)="atualizarDataHora()">Atualizar data</button></p>
+  <p><button class="btn btn-success" (click)="downloadCSV()">Download CSV</button></p>
+  <p><button class="btn btn-danger" (click)="downloadPDF()">Download PDF</button></p>
   <br>
 <table class="table bg-dark text-white table-hover">
     <thead>

@@ -3,6 +3,9 @@ import { Injectable } from '@angular/core';
 import {Observable } from 'rxjs';
 import {environment as env} from 'src/environments/environment';
 import { HttpService } from './http.service';
+import { saveAs } from 'file-saver';
+import { Lancamento } from '../models/lancamento.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +24,19 @@ export class LancamentoService {
   
   }
 
+  downloadCSV(lancamentos: Lancamento[]) {
+    const col = 'ID, Data, Hora, Tipo, Localização\n';
+    const linhas: string [] = [];
+
+    lancamentos.forEach(lancamento =>{
+      const dataHora = lancamento.data.split(' ');
+      const linha = `${lancamento.id}, ${dataHora[0]}, ${dataHora[1]}, ${lancamento.tipo}, ${lancamento.localizacao}`;
+      linhas.push(linha);
+    });
+    const dados = col + linhas.join('\n');
+    const blob = new Blob([dados], {type: 'text/csv'});
+    saveAs(blob, 'lancamentos.csv');
+  }
 
   }
 

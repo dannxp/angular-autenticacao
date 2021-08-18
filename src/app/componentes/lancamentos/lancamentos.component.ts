@@ -5,6 +5,7 @@ import { DadosUsuario } from 'src/app/models/dadosUsuario.model';
 import { Lancamento } from 'src/app/models/lancamento.model';
 import { DataHoraService } from 'src/app/servicos/data-hora.service';
 import { LancamentoService } from 'src/app/servicos/lancamento.service';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-lancamentos',
@@ -50,4 +51,10 @@ export class LancamentosComponent implements OnInit, OnDestroy {
     this.dataHoraService.atualizarDatahora();
 
   }
+
+  downloadCSV(){
+    this.lancamentoService.downloadCSV(this.lancamentos);
+  }
+
+  
 }
